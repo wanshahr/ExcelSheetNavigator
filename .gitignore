@@ -1,0 +1,26 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.cache
+
+# VSTO / ClickOnce publish
+publish/
+*.application
+
+# Code-signing keys (private) — never commit
+*.pfx
+*.snk
+
+# Installer package output
+dist/
+
+# OS / editor
+Thumbs.db
+.DS_Store

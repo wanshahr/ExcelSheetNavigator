@@ -1,0 +1,39 @@
+============================================
+  Excel Sheet Navigator  -  Easy Install
+============================================
+
+NO admin rights needed.  Installs for your Windows user only.
+
+--------------------------------------------
+HOW TO INSTALL
+--------------------------------------------
+1. If you got this as a ZIP file:
+   - Right-click the ZIP > Properties > tick "Unblock" (if shown) > OK.
+   - Extract the whole folder somewhere (e.g. your Desktop).
+
+2. Close Excel.
+
+3. Open the extracted folder and double-click:   Install.bat
+   - If Windows shows a blue "Windows protected your PC" box,
+     click "More info", then "Run anyway".
+
+4. Open Excel. The "Sheet Navigator" panel appears on the right.
+   Show/hide it any time from:  Home tab > Navigator > Sheet Navigator.
+
+--------------------------------------------
+HOW TO REMOVE
+--------------------------------------------
+Close Excel, then double-click:   Uninstall.bat
+
+--------------------------------------------
+IF THE PANEL DOES NOT SHOW UP
+--------------------------------------------
+Install the free Microsoft "Visual Studio 2010 Tools for Office Runtime":
+   https://aka.ms/vstoredist
+Then run Install.bat again.
+
+--------------------------------------------
+REQUIREMENTS
+--------------------------------------------
+- Windows with Microsoft Excel (desktop edition), 2013 or newer.
+- .NET Framework 4.8 (already on Windows 10/11).

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="OnRibbonLoad">
+  <ribbon>
+    <tabs>
+      <tab idMso="TabHome">
+        <group id="grpSheetNavigator" label="Navigator">
+          <toggleButton id="btnToggleNavigator"
+                        label="Sheet Navigator"
+                        size="large"
+                        imageMso="TableOfContents"
+                        onAction="OnToggleNavigator"
+                        getPressed="GetTogglePressed"
+                        screentip="Sheet Navigator"
+                        supertip="Show or hide the dockable worksheet navigation panel." />
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>
