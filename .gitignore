@@ -18,8 +18,9 @@ publish/
 *.pfx
 *.snk
 
-# Installer package output
+# Installer package output (distributed via GitHub Releases, not the repo)
 dist/
+*.zip
 
 # OS / editor
 Thumbs.db
