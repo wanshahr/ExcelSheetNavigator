@@ -22,26 +22,35 @@ highlighted.
 
 ---
 
-## Give it to other people (one-click installer)
+## Download & install (one-click installer)
 
-To share the add-in with someone who does **not** have Visual Studio, build a
-self-contained package:
+No Visual Studio required, and **no administrator rights**.
 
-```powershell
-.\scripts\Build-Package.ps1                 # builds Release and creates the ZIP
-```
-
-This produces **`dist\ExcelSheetNavigator.zip`**. Send that ZIP to anyone. They:
+**Download the latest ZIP from the [Releases page](https://github.com/wanshahr/ExcelSheetNavigator/releases/latest)**
+(direct link: [ExcelSheetNavigator.zip](https://github.com/wanshahr/ExcelSheetNavigator/releases/latest/download/ExcelSheetNavigator.zip)).
+Then:
 
 1. Right-click the ZIP → **Properties** → tick **Unblock** (if shown) → **OK**, then extract it.
 2. Close Excel.
 3. Double-click **`Install.bat`** (choose *More info → Run anyway* if SmartScreen appears).
 4. Open Excel — the panel is there. To remove later, double-click **`Uninstall.bat`**.
 
-No administrator rights are required: the installer copies the add-in to
-`%LOCALAPPDATA%\ExcelSheetNavigator`, trusts the certificate for that user only,
-and registers it under `HKCU`. If the panel does not appear, the recipient installs
-the free [VSTO runtime](https://aka.ms/vstoredist) and runs `Install.bat` again.
+The installer copies the add-in to `%LOCALAPPDATA%\ExcelSheetNavigator`, trusts the
+certificate for that user only, and registers it under `HKCU`. If the panel does not
+appear, install the free [VSTO runtime](https://aka.ms/vstoredist) and run
+`Install.bat` again.
+
+### Publish a new release (maintainers)
+
+Build the self-contained package from source, then upload it as a GitHub Release so
+others can download it:
+
+```powershell
+.\scripts\Build-Package.ps1                 # builds Release → dist\ExcelSheetNavigator.zip
+gh release create v1.1.0 dist\ExcelSheetNavigator.zip --title "Excel Sheet Navigator v1.1.0" --notes "What changed…"
+# …or replace the asset on an existing release:
+gh release upload v1.0.0 dist\ExcelSheetNavigator.zip --clobber
+```
 
 > The package is signed with the bundled self-signed development certificate. For
 > wide distribution, sign with an organization code-signing certificate so Windows
@@ -132,8 +141,10 @@ development certificate, `ExcelSheetNavigator/ExcelSheetNavigator_TemporaryKey.p
 (thumbprint `FFE84A0F4BF082EB0D87E9A64AF121FB474BB7D4`). The public part is at
 [scripts/ExcelSheetNavigator.cer](scripts/ExcelSheetNavigator.cer).
 
-> For production, replace it with your organization's code-signing certificate and
-> update `ManifestKeyFile` / `ManifestCertificateThumbprint` in the `.csproj`.
+> **The private `.pfx` key is not committed** (it is git-ignored). A fresh clone must
+> supply its own signing key — generate a new self-signed certificate (or use your
+> organization's) and update `ManifestKeyFile` / `ManifestCertificateThumbprint` in
+> the `.csproj`.
 
 ---
 
